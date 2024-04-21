@@ -23,7 +23,6 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-
 Cypress.Commands.add('typeLogin', (username, password) => {
   cy.get('[data-test="username"]').type(username);
   cy.get('#password').type(password);
@@ -33,4 +32,22 @@ Cypress.Commands.add('typeLogin', (username, password) => {
 Cypress.Commands.add('logout', () => {
   cy.get('#react-burger-menu-btn').click();
   cy.get('#logout_sidebar_link').click();
+})
+
+Cypress.Commands.add('logging', () => {
+  cy.log('TEST LOG1');
+  cy.log('TEST LOG2');
+})
+
+Cypress.Commands.add('setLocalStorage',(key,value)=>{
+  cy.window().then(window =>{
+    window.localStorage.setItem(key,value);
+  })
+})
+
+Cypress.Commands.add('getLocalStorage',(key)=>{
+  cy.window().then((window)=>{
+    cy.log('key: ' + key);
+    return window.localStorage.getItem(key);
+  })
 })

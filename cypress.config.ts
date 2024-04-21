@@ -2,7 +2,7 @@ import { defineConfig } from 'cypress'
 
 export default defineConfig({
   chromeWebSecurity: false,
-  projectId: 'ioceso',
+  projectId: 'e8oith',
   screenshotOnRunFailure: true,
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
